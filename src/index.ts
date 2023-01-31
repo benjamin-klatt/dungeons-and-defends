@@ -2,7 +2,7 @@ import { Gameobject } from "./Gameobject";
 import { Map } from "./Gameobjects/Map";
 //Array mit allen Gameobjects:
 let gameobjects = [] as Array<Gameobject>;
-let canvas = document.getElementById("Steve") as HTMLCanvasElement;
+let canvas = document.getElementById("steve") as HTMLCanvasElement;
 let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
 gameobjects.push(new Map());
