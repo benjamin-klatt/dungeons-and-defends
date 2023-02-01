@@ -1,12 +1,13 @@
 import { Gameobject } from "./Gameobject";
 import { Map } from "./Gameobjects/Map";
+import { Tavern } from "./Gameobjects/Tavern";
 //Array mit allen Gameobjects:
 let gameobjects = [] as Array<Gameobject>;
 let canvas = document.getElementById("steve") as HTMLCanvasElement;
 let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
 gameobjects.push(new Map());
-
+gameobjects.push(new Tavern());
 //render loop:
 function loop(time: number) {
   for (let x = 0; x < gameobjects.length; x = x + 1) {
