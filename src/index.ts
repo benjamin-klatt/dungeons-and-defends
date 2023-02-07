@@ -18,6 +18,13 @@ gameobjects.push(new Turret());
 gameobjects.push(new Enemy(map));
 gameobjects.push(new Checkpoint());
 
+document.onclick = handleMouseClick;
+function handleMouseClick(event: MouseEvent) {
+  for (let x = 0; x < gameobjects.length; x = x + 1) {
+    let gameobject = gameobjects[x];
+    gameobject.onClick(event);
+  }
+}
 //render loop:
 function loop(time: number) {
   for (let x = 0; x < gameobjects.length; x = x + 1) {
