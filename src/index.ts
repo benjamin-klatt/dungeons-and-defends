@@ -4,6 +4,7 @@ import { Map } from "./Gameobjects/Map";
 import { Tavern } from "./Gameobjects/Tavern";
 import { Turret } from "./Gameobjects/Turret"
 import { Enemy } from "./Gameobjects/Enemy"
+import { Checkpoint } from "./Gameobjects/Checkpoint"
 
 //Array mit allen Gameobjects:
 let gameobjects = [] as Array<Gameobject>;
@@ -13,7 +14,8 @@ let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 gameobjects.push(new Map());
 gameobjects.push(new Tavern());
 gameobjects.push(new Turret());
-gameobjects.push(new Enemy())
+gameobjects.push(new Enemy());
+gameobjects.push(new Checkpoint());
 
 //render loop:
 function loop(time: number) {
