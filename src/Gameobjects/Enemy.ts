@@ -17,6 +17,9 @@ export class Enemy extends Gameobject {
         super()
         this.map = map;
     }
+    tick(time:number) {
+        
+    }
     
     render(time:number, ctx: CanvasRenderingContext2D) {
         ctx.fillStyle = "lime";
