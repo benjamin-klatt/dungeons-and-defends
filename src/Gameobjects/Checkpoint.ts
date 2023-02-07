@@ -2,12 +2,12 @@ import { Gameobject } from "../Gameobject";
 
 export class Checkpoint extends Gameobject {
     //Eigenschaften
-    xPos: number = 0;
-    yPos: number = 0;
+    xPosCp: number = 20;
+    yPosCp: number = 50;
     
     render(time:number, ctx: CanvasRenderingContext2D) {
         ctx.fillStyle = "violet";
-        ctx.fillRect(20, 50, 10, 10);
+        ctx.fillRect(this.xPosCp, this.yPosCp, 10, 10);
     }
     
 }

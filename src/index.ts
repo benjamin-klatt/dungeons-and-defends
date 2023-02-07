@@ -10,11 +10,12 @@ import { Checkpoint } from "./Gameobjects/Checkpoint"
 let gameobjects = [] as Array<Gameobject>;
 let canvas = document.getElementById("steve") as HTMLCanvasElement;
 let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+let map = new Map();
 
-gameobjects.push(new Map());
+gameobjects.push(map);
 gameobjects.push(new Tavern());
 gameobjects.push(new Turret());
-gameobjects.push(new Enemy());
+gameobjects.push(new Enemy(map));
 gameobjects.push(new Checkpoint());
 
 //render loop:
