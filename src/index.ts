@@ -1,13 +1,17 @@
 import { Gameobject } from "./Gameobject";
 import { Map } from "./Gameobjects/Map";
+
+import { Tavern } from "./Gameobjects/Tavern";
 import { Turret } from "./Gameobjects/Turret"
 import { Enemy } from "./Gameobjects/Enemy"
+
 //Array mit allen Gameobjects:
 let gameobjects = [] as Array<Gameobject>;
 let canvas = document.getElementById("steve") as HTMLCanvasElement;
 let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
 gameobjects.push(new Map());
+gameobjects.push(new Tavern());
 gameobjects.push(new Turret());
 gameobjects.push(new Enemy())
 
