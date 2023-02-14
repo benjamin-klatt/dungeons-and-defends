@@ -21,7 +21,8 @@ export class Enemy extends Gameobject {
     }
     
     tick(time:number) {
-        
+      let xD= this.getCurrentCheckpoint().xPosCp - this.xPos;
+      let yD= this.getCurrentCheckpoint().yPosCp - this.yPos;
     }
     
     render(time:number, ctx: CanvasRenderingContext2D) {
