@@ -7,8 +7,6 @@ export class Enemy extends Gameobject {
     speed: number = 0;
     xPos: number = 20;
     yPos: number = 20;
-    xPosGoal: number = 0;
-    yPosGoal: number = 0;
     bounty: number = 0;
     map:Map;
     cpNumber: number = 0;
@@ -17,6 +15,11 @@ export class Enemy extends Gameobject {
         super()
         this.map = map;
     }
+    
+    getCurrentCheckpoint(){
+        return this.map.checkpoints[this.cpNumber];
+    }
+    
     tick(time:number) {
         
     }
