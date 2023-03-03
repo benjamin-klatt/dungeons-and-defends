@@ -11,13 +11,13 @@ export let gameobjects = [] as Array<Gameobject>;
 let canvas = document.getElementById("steve") as HTMLCanvasElement;
 let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 let map = new Map();
-let lasttime = 0
+let lasttime = 0;
+let dt = 0;
 
 gameobjects.push(map);
 gameobjects.push(new Tavern());
 gameobjects.push(new Turret());
 gameobjects.push(new Enemy(map));
-gameobjects.push(new Checkpoint());
 
 document.onclick = handleMouseClick;
 function handleMouseClick(event: MouseEvent) {
@@ -30,13 +30,13 @@ function handleMouseClick(event: MouseEvent) {
 function loop(time: number) {
   for (let x = 0; x < gameobjects.length; x = x + 1) {
     let gameobject = gameobjects[x];
-    gameobject.tick(time, time);
+    gameobject.tick(time, dt)
   }
   for (let x = 0; x < gameobjects.length; x = x + 1) {
     let gameobject = gameobjects[x];
     gameobject.render(time, ctx);
   }
-  lasttime = time
+  lasttime = time;
   requestAnimationFrame(loop);
 }
 loop(0);

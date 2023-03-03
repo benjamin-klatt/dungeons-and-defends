@@ -31,7 +31,7 @@ export class Enemy extends Gameobject {
       }
       let xD = this.getCurrentCheckpoint().xPosCp - this.xPos;
       let yD = this.getCurrentCheckpoint().yPosCp - this.yPos;
-      let lenght = Math.sqrt(Math.pow(xD,2) + Math.pow(yD,2));
+      let lenght = Math.sqrt(Math.pow(xD,2) + (Math.pow(yD,2)));
       let xN = xD / lenght;
       let yN = yD / lenght;
       let xB = xN * (this.speed / 1000000) * dt
