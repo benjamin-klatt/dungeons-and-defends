@@ -13,6 +13,7 @@ let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 let map = new Map();
 let lasttime = 0;
 let dt = 0;
+console.log("Test");
 
 gameobjects.push(map);
 gameobjects.push(new Tavern());
