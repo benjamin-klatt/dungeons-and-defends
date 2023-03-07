@@ -21,6 +21,7 @@ export class Enemy extends Gameobject {
     }
     //D: Direction, N:Normalenvektor, B: Einheitsvektor
     tick(time:number, dt:number) { //ToDo: Deltazeit in Index.ts noch machen
+           
       if (this.hasFoundCheckpoint()){
           if (this.map.checkpoints.length - 1 > this.cpNumber){
             this.cpNumber++;
@@ -34,8 +35,8 @@ export class Enemy extends Gameobject {
       let lenght = Math.sqrt(Math.pow(xD,2) + (Math.pow(yD,2)));
       let xN = xD / lenght;
       let yN = yD / lenght;
-      let xB = xN * (this.speed / 1000000) * dt
-      let yB = yN * (this.speed / 1000000) * dt;
+      let xB = xN * (this.speed / 1000) * dt
+      let yB = yN * (this.speed / 1000) * dt;
       this.xPos = xB + this.xPos;
       this.yPos = yB + this.yPos;
     }
