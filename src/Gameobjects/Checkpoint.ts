@@ -11,9 +11,9 @@ export class Checkpoint extends Gameobject {
         this.yPosCp = yPos;
     }
     
-    render(time:number, ctx: CanvasRenderingContext2D) {
+    /*render(time:number, ctx: CanvasRenderingContext2D) {
         ctx.fillStyle = "violet";
         ctx.fillRect(this.xPosCp, this.yPosCp, 10, 10);
-    }
+    } */
     
 }

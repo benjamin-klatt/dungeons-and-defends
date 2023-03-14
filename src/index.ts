@@ -2,9 +2,9 @@ import { Gameobject } from "./Gameobject";
 import { Map } from "./Gameobjects/Map";
 
 import { Tavern } from "./Gameobjects/Tavern";
-import { Turret } from "./Gameobjects/Turret"
-import { Enemy } from "./Gameobjects/Enemy"
-import { Checkpoint } from "./Gameobjects/Checkpoint"
+import { Turret } from "./Gameobjects/Turret";
+import { Enemy } from "./Gameobjects/Enemy";
+import { Checkpoint } from "./Gameobjects/Checkpoint";
 import { NewEnemyButton } from "./Gameobjects/NewEnemyButton";
 
 //Array mit allen Gameobjects:
@@ -14,11 +14,11 @@ let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 export let map = new Map();
 let lasttime = 0;
 
-gameobjects.push(map);
 gameobjects.push(new Tavern());
 gameobjects.push(new Turret());
 gameobjects.push(new Enemy(map));
 gameobjects.push(new NewEnemyButton());
+gameobjects.push(map);
 
 document.onclick = handleMouseClick;
 function handleMouseClick(event: MouseEvent) {
@@ -29,12 +29,12 @@ function handleMouseClick(event: MouseEvent) {
 }
 //render loop:
 function loop(time: number) {
-  let dt = time-lasttime;
-  for (let x = 0; x < gameobjects.length; x = x + 1) {
+  let dt = time - lasttime;
+  for (let x = gameobjects.length - 1; x >= 0; x--) {
     let gameobject = gameobjects[x];
-    gameobject.tick(time, dt)
+    gameobject.tick(time, dt);
   }
-  for (let x = 0; x < gameobjects.length; x = x + 1) {
+  for (let x = gameobjects.length - 1; x >= 0; x--) {
     let gameobject = gameobjects[x];
     gameobject.render(time, ctx);
   }
