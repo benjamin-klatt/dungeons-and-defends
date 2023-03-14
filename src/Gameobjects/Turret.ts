@@ -6,7 +6,7 @@ export class Turret extends Gameobject {
     //Eigenschaften
     attackspeed: number = 0;
     attackdamage: number = 25;
-    reach: number = 100;
+    reach: number = 250;
     critchance: number = 0;
     price:number = 0;
     xPos:number = 10;

@@ -5,18 +5,20 @@ import { Tavern } from "./Gameobjects/Tavern";
 import { Turret } from "./Gameobjects/Turret"
 import { Enemy } from "./Gameobjects/Enemy"
 import { Checkpoint } from "./Gameobjects/Checkpoint"
+import { NewEnemyButton } from "./Gameobjects/NewEnemyButton";
 
 //Array mit allen Gameobjects:
 export let gameobjects = [] as Array<Gameobject>;
 let canvas = document.getElementById("steve") as HTMLCanvasElement;
 let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-let map = new Map();
+export let map = new Map();
 let lasttime = 0;
 
 gameobjects.push(map);
 gameobjects.push(new Tavern());
 gameobjects.push(new Turret());
 gameobjects.push(new Enemy(map));
+gameobjects.push(new NewEnemyButton());
 
 document.onclick = handleMouseClick;
 function handleMouseClick(event: MouseEvent) {

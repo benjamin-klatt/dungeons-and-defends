@@ -1,3 +1,4 @@
+import { gameobjects } from "../index";
 import { Gameobject } from "../Gameobject";
 import { Map } from "./Map";
 
@@ -5,7 +6,7 @@ export class Enemy extends Gameobject {
     //Eigenschaften
     life: number = 100;
     speed: number = 75;
-    xPos: number = 20;
+    xPos: number = 400;
     yPos: number = 20;
     bounty: number = 0;
     map:Map;
@@ -39,6 +40,11 @@ export class Enemy extends Gameobject {
       let yB = yN * (this.speed / 1000) * dt;
       this.xPos = xB + this.xPos;
       this.yPos = yB + this.yPos;
+      
+      if(this.life <= 0){
+          gameobjects.splice(gameobjects.indexOf(this))
+          console.log("Enemy Dead");
+      }
     }
     
     render(time:number, ctx: CanvasRenderingContext2D) {
