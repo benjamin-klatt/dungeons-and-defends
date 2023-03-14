@@ -1,10 +1,11 @@
 import { Gameobject } from "./Gameobject";
 import { Map } from "./Gameobjects/Map";
 
+import { TavernInnen } from "./Gameobjects/TavernInnen";
 import { Tavern } from "./Gameobjects/Tavern";
-import { Turret } from "./Gameobjects/Turret"
-import { Enemy } from "./Gameobjects/Enemy"
-import { Checkpoint } from "./Gameobjects/Checkpoint"
+import { Turret } from "./Gameobjects/Turret";
+import { Enemy } from "./Gameobjects/Enemy";
+import { Checkpoint } from "./Gameobjects/Checkpoint";
 
 //Array mit allen Gameobjects:
 export let gameobjects = [] as Array<Gameobject>;
@@ -14,7 +15,7 @@ let map = new Map();
 let lasttime = 0;
 
 gameobjects.push(map);
-gameobjects.push(new Tavern());
+gameobjects.push(new Tavern(gameobjects));
 gameobjects.push(new Turret());
 gameobjects.push(new Enemy(map));
 
@@ -27,10 +28,10 @@ function handleMouseClick(event: MouseEvent) {
 }
 //render loop:
 function loop(time: number) {
-  let dt = time-lasttime;
+  let dt = time - lasttime;
   for (let x = 0; x < gameobjects.length; x = x + 1) {
     let gameobject = gameobjects[x];
-    gameobject.tick(time, dt)
+    gameobject.tick(time, dt);
   }
   for (let x = 0; x < gameobjects.length; x = x + 1) {
     let gameobject = gameobjects[x];
