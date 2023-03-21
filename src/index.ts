@@ -29,6 +29,10 @@ function handleMouseClick(event: MouseEvent) {
 }
 //render loop:
 function loop(time: number) {
+  console.log(gameobjects);
+  gameobjects.sort(function compareFn(a, b) {
+    return b.zPos - a.zPos;
+  });
   let dt = time - lasttime;
   for (let x = gameobjects.length - 1; x >= 0; x--) {
     let gameobject = gameobjects[x];
