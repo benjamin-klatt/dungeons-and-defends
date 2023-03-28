@@ -18,10 +18,11 @@ export class Tavern extends Gameobject {
 
   // wenn man auf die Taverne klickt soll sich ein Interface öffnen
   onClick(event: MouseEvent) {
+    console.log(event);
     let xPosInField: boolean =
-      event.clientX <= this.xpos + this.width && event.clientX >= this.xpos;
+      event.offsetX <= this.xpos + this.width && event.offsetX >= this.xpos;
     let yPosInField: boolean =
-      event.clientY <= this.ypos + this.height && event.clientY >= this.ypos;
+      event.offsetY <= this.ypos + this.height && event.offsetY >= this.ypos;
     if (xPosInField && yPosInField) {
       console.log("hallo Taverne");
       this.gameobjects.push(new TavernInnen());
