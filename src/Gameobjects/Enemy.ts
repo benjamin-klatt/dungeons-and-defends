@@ -38,9 +38,7 @@ export class Enemy extends Gameobject {
         this.cpNumber++;
       }
     }
-    console.log(this.life);
     if (this.life <= 0) {
-      console.log(gameobjects.indexOf(this));
       gameobjects.splice(gameobjects.indexOf(this), 1);
     }
   }
