@@ -6,6 +6,9 @@ export class TavernInnen extends Gameobject {
   ypos = 600;
   width = 800;
   height = 200;
+  constructor(){
+      super(5);
+  }
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "#752904";
     ctx.fillRect(this.xpos, this.ypos, this.width, this.height);

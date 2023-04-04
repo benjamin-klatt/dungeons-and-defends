@@ -8,9 +8,10 @@ export class Tavern extends Gameobject {
   height = 100;
   gameobjects: Array<Gameobject>;
   constructor(gameobjects: Array<Gameobject>) {
-    super();
+    super(4);
     this.gameobjects = gameobjects;
   }
+
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "#752904";
     ctx.fillRect(this.xpos, this.ypos, this.width, this.height);

@@ -8,7 +8,7 @@ export class TavernInnenMenschen extends Gameobject {
   height = 50;
   gameobjects: Array<Gameobject>;
   constructor(gameobjects: Array<Gameobject>) {
-    super();
+    super(6);
     this.gameobjects = gameobjects;
   }
   render(time: number, ctx: CanvasRenderingContext2D) {

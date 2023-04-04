@@ -13,7 +13,7 @@ export class Enemy extends Gameobject {
   cpNumber: number = 0;
 
   constructor(map: Map) {
-    super();
+    super(2);
     this.map = map;
   }
 
@@ -38,9 +38,9 @@ export class Enemy extends Gameobject {
         this.cpNumber++;
       }
     }
-    console.log(this.life);
+    //console.log(this.life);
     if (this.life <= 0) {
-      console.log(gameobjects.indexOf(this));
+      //console.log(gameobjects.indexOf(this));
       gameobjects.splice(gameobjects.indexOf(this), 1);
     }
   }
