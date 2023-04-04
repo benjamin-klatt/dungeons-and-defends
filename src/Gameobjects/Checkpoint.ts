@@ -6,7 +6,7 @@ export class Checkpoint extends Gameobject {
     yPosCp: number;
     
     constructor(xPos: number, yPos: number){
-        super();
+        super(0);
         this.xPosCp = xPos;
         this.yPosCp = yPos;
     }

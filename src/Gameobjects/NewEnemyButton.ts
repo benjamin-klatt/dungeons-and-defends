@@ -11,6 +11,10 @@ export class NewEnemyButton extends Gameobject{
     widthRect: number = 20;
     heightRect: number = 20;
     
+    constructor(){
+        super(2);
+    }
+    
     render(time: number, ctx: CanvasRenderingContext2D){
         ctx.fillStyle = "violet";
         ctx.fillRect (this.xPosRect,this.yPosRect,this.widthRect,this.heightRect);

@@ -5,6 +5,11 @@ export class Tavern extends Gameobject {
   ypos = 500;
   width = 100;
   height = 100;
+  
+  constructor(){
+    super(2);
+  }
+  
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "#752904";
     ctx.fillRect(this.xpos, this.ypos, this.width, this.height);
@@ -24,3 +29,4 @@ export class Tavern extends Gameobject {
  }
 }
  //Befindet sich Event.ClientX,ClientY auf der Taverne
+}
