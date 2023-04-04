@@ -7,7 +7,7 @@ let mapImage = document.getElementById("map") as HTMLImageElement;
 export class Map extends Gameobject {
   constructor(){
     super()
-    this.addCheckpoint(new Checkpoint(250,250))
+    this.addCheckpoint(new Checkpoint(100,20))
     this.addCheckpoint(new Checkpoint(20,20))
   }
   public checkpoints: Array<Checkpoint> = [];
