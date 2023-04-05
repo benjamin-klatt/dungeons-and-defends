@@ -31,7 +31,7 @@ function handleMouseClick(event: MouseEvent) {
 }
 //render loop:
 function loop(time: number) {
-  console.log(gameobjects);
+  //console.log(gameobjects);
   gameobjects.sort(function compareFn(a, b) {
     return b.zPos - a.zPos;
   });
