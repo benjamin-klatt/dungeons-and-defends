@@ -25,7 +25,6 @@ export class NewEnemyButton extends Gameobject{
    let yPosInField: boolean = event.clientY <= (this.yPosRect+this.heightRect) && event.clientY >= this.yPosRect;
    if(xPosInField && yPosInField) 
    {
-     console.log ("Spawn new Enemy!")
      //Hier soll ein neuer Enemy nun entstehen
      gameobjects.push(new Enemy(map));
  }

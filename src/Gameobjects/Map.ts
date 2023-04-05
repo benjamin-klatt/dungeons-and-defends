@@ -8,7 +8,7 @@ export class Map extends Gameobject {
   constructor() {
     super(1);
     this.addCheckpoint(new Checkpoint(100, 20));
-    this.addCheckpoint(new Checkpoint(200, 200));
+    //this.addCheckpoint(new Checkpoint(200, 200));
     this.addCheckpoint(new Checkpoint(20, 20));
   }
   public checkpoints: Array<Checkpoint> = [];
