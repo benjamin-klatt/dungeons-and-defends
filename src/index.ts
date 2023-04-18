@@ -16,7 +16,7 @@ export let map = new Map();
 let lasttime = 0;
 
 gameobjects.push(map);
-gameobjects.push(new Tavern(gameobjects));
+gameobjects.push(new Tavern());
 gameobjects.push(new Turret());
 gameobjects.push(new Enemy(map));
 gameobjects.push(new NewEnemyButton());

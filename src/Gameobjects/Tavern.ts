@@ -6,10 +6,8 @@ export class Tavern extends Gameobject {
   ypos = 500;
   width = 100;
   height = 100;
-  gameobjects: Array<Gameobject>;
-  constructor(gameobjects: Array<Gameobject>) {
+  constructor() {
     super(4);
-    this.gameobjects = gameobjects;
   }
 
   render(time: number, ctx: CanvasRenderingContext2D) {

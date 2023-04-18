@@ -6,10 +6,8 @@ export class TavernInnenMenschen extends Gameobject {
   ypos = 700;
   width = 50;
   height = 50;
-  gameobjects: Array<Gameobject>;
-  constructor(gameobjects: Array<Gameobject>) {
+  constructor() {
     super(6);
-    this.gameobjects = gameobjects;
   }
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "#752904";
