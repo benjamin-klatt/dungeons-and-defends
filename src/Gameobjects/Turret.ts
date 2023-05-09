@@ -21,7 +21,7 @@ export class Turret extends Gameobject {
   price: number = 0;
   xPos: number = 10;
   yPos: number = 10;
-  attackType: AttackType = AttackType.LAST;
+  attackType: AttackType = AttackType.FIRST;
 
   constructor() {
     super(2);

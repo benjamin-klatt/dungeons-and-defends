@@ -1,6 +1,6 @@
 import { Gameobject } from "./Gameobject";
 import { Map } from "./Gameobjects/Map";
-
+import { Grid } from "./Gameobjects/Grid";
 import { Tavern } from "./Gameobjects/Tavern";
 import { Turret } from "./Gameobjects/Turret";
 import { Enemy } from "./Gameobjects/Enemy";
@@ -19,6 +19,7 @@ gameobjects.push(new Turret());
 gameobjects.push(new Enemy(map));
 gameobjects.push(new NewEnemyButton());
 gameobjects.push(map);
+gameobjects.push(new Grid(map));
 
 document.onclick = handleMouseClick;
 function handleMouseClick(event: MouseEvent) {
