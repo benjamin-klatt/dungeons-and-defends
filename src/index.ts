@@ -17,7 +17,7 @@ let lasttime = 0;
 
 gameobjects.push(map);
 gameobjects.push(new Tavern());
-gameobjects.push(new Turret());
+gameobjects.push(new Turret(10, 10));
 gameobjects.push(new Enemy(map));
 gameobjects.push(new NewEnemyButton());
 gameobjects.push(map);

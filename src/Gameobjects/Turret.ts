@@ -23,8 +23,10 @@ export class Turret extends Gameobject {
   yPos: number = 10;
   attackType: AttackType = AttackType.LAST;
 
-  constructor() {
+  constructor(x: number, y: number) {
     super(2);
+    this.xPos = x;
+    this.yPos = y;
   }
 
   getEnemyCoveredPathCpNumber(enemy: Enemy) {
