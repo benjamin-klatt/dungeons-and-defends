@@ -1,21 +1,20 @@
+import { Turret } from "./Turret";
 import { Gameobject } from "../Gameobject";
 import { TavernInnen } from "./TavernInnen";
 
-export class Tavern extends Gameobject {
-  xpos = 0;
-  ypos = 500;
-  width = 100;
-  height = 100;
+export class TavernInnenMenschen extends Gameobject {
+  xpos = 100;
+  ypos = 700;
+  width = 50;
+  height = 50;
   constructor() {
-    super(4);
+    super(6);
   }
-
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "#752904";
     ctx.fillRect(this.xpos, this.ypos, this.width, this.height);
   }
 
-  // wenn man auf die Taverne klickt soll sich ein Interface öffnen
   onClick(event: MouseEvent) {
     console.log(event);
     let xPosInField: boolean =
@@ -23,11 +22,7 @@ export class Tavern extends Gameobject {
     let yPosInField: boolean =
       event.offsetY <= this.ypos + this.height && event.offsetY >= this.ypos;
     if (xPosInField && yPosInField) {
-      console.log("hallo Taverne");
-      this.gameobjects.push(new TavernInnen());
-      //hier soll sich ein Interface öffnen auf dem nochmal Buttons entstehen
-      //dafür muss ich ein Gameobject erstellen
+      this.gameobjects.push(new Turret(20,20));
     }
   }
-  //Befindet sich Event.ClientX,ClientY auf der Taverne
-}
+} // immer wenn dieser Knopf gedrückt wird soll ein neuer turret an der Maus gespawnt werden

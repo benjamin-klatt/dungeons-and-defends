@@ -1,5 +1,6 @@
 import { Gameobject } from "./Gameobject";
 import { Map } from "./Gameobjects/Map";
+import { TavernInnen } from "./Gameobjects/TavernInnen";
 import { Grid } from "./Gameobjects/Grid";
 import { Tavern } from "./Gameobjects/Tavern";
 import { Turret } from "./Gameobjects/Turret";
@@ -14,8 +15,9 @@ let ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 export let map = new Map();
 let lasttime = 0;
 
+gameobjects.push(map);
 gameobjects.push(new Tavern());
-gameobjects.push(new Turret());
+gameobjects.push(new Turret(10, 10));
 gameobjects.push(new Enemy(map));
 gameobjects.push(new NewEnemyButton());
 gameobjects.push(map);
@@ -35,6 +37,7 @@ function loop(time: number) {
     return b.zPos - a.zPos;
   });
   let dt = time - lasttime;
+
   for (let x = gameobjects.length - 1; x >= 0; x--) {
     let gameobject = gameobjects[x];
     gameobject.tick(time, dt);
