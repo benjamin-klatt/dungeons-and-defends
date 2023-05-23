@@ -1,6 +1,7 @@
 import { Gameobject } from "../Gameobject";
 import { Checkpoint } from "./Checkpoint";
 import { gameobjects } from "../index";
+import { Enemy } from "./Enemy";
 
 let mapImage = document.getElementById("map") as HTMLImageElement;
 
@@ -18,5 +19,14 @@ export class Map extends Gameobject {
   addCheckpoint(cp: Checkpoint) {
     this.checkpoints.push(cp);
     gameobjects.push(cp);
+  }
+  public enemyCount() {
+    let count = 0;
+    for (let i = 0; i < gameobjects.length; i++) {
+      if (gameobjects[i] instanceof Enemy) {
+        count = count + 1;
+      }
+    }
+    return count;
   }
 }
