@@ -1,4 +1,3 @@
-import { gameobjects } from "../../dist/src.f10117fe";
 import { Gameobject } from "../Gameobject";
 import { TavernInnenMenschen } from "./TavernInnenMenschen";
 let tavernInnenImage = document.getElementById("tavern") as HTMLImageElement;
