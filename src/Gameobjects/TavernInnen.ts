@@ -4,8 +4,8 @@ let tavernInnenImage = document.getElementById("tavern") as HTMLImageElement;
 export class TavernInnen extends Gameobject {
   xpos = 0;
   ypos = 600;
-  width = 800;
-  height = 800;
+  width = 900;
+  height = 200;
   constructor() {
     super(5);
     this.gameobjects.push(new TavernInnenMenschen());

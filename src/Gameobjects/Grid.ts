@@ -4,8 +4,8 @@ import { Map } from "./Map";
 
 export class Grid extends Gameobject {
   map: Map;
-  width: number = 15;
-  heigth: number = 15;
+  width: number = 20;
+  heigth: number = 20;
 
   constructor(map: Map) {
     super(2);
