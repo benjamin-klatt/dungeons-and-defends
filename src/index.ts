@@ -8,6 +8,7 @@ import { Enemy } from "./Gameobjects/Enemy";
 import { Checkpoint } from "./Gameobjects/Checkpoint";
 import { NewEnemyButton } from "./Gameobjects/NewEnemyButton";
 import { Rounds } from "./Gameobjects/Rounds";
+import { Placer } from "./Gameobjects/Placer";
 //Array mit allen Gameobjects:
 export let gameobjects = [] as Array<Gameobject>;
 let canvas = document.getElementById("steve") as HTMLCanvasElement;
@@ -32,6 +33,15 @@ function handleMouseClick(event: MouseEvent) {
     gameobject.onClick(event);
   }
 }
+
+document.onmousemove = handleMouseMove;
+function handleMouseMove(event: MouseEvent) {
+  for (let x = 0; x < gameobjects.length; x = x + 1) {
+    let gameobject = gameobjects[x];
+    gameobject.onMouseMove(event);
+  }
+}
+
 //render loop:
 function loop(time: number) {
   //console.log(gameobjects);
