@@ -18,8 +18,8 @@ export class Grid extends Gameobject {
     ctx.lineWidth = 1;
     ctx.strokeStyle = "black";
     ctx.beginPath();
-    for (let x = 0; x <= 900; x = x + this.width) {
-      for (let y = 0; y <= 600; y = y + this.heigth) {
+    for (let x = 0; x < 900; x = x + this.width) {
+      for (let y = 0; y < 600; y = y + this.heigth) {
         ctx.rect(x, y, this.width, this.heigth);
       }
     }

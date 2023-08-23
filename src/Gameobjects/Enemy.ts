@@ -13,7 +13,7 @@ export class Enemy extends Gameobject {
   cpNumber: number = 0;
 
   constructor(map: Map) {
-    super(2);
+    super(3);
     this.map = map;
   }
 

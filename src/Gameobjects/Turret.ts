@@ -1,6 +1,7 @@
 import { Gameobject } from "../Gameobject";
 import { gameobjects } from "../index";
 import { Enemy } from "./Enemy";
+import { Projectile } from "./Projectile";
 
 enum AttackType {
   AURA,
@@ -19,14 +20,12 @@ export class Turret extends Gameobject {
   reach: number = 250;
   critchance: number = 0;
   price: number = 0;
-  xPos: number = 10;
-  yPos: number = 10;
+  xPos: number = 0;
+  yPos: number = 0;
   attackType: AttackType = AttackType.FIRST;
 
-  constructor(x: number, y: number) {
-    super(2);
-    this.xPos = x;
-    this.yPos = y;
+  constructor() {
+    super(3);
   }
 
   getEnemyCoveredPathCpNumber(enemy: Enemy) {
@@ -145,6 +144,7 @@ export class Turret extends Gameobject {
   }
 
   shootEnemy(enemy: Enemy, dt: number) {
+    gameobjects.push(new Projectile(this.xPos, this.yPos, enemy));
     enemy.life = Math.max(0, enemy.life - (this.attackdamage / 1000) * dt);
   }
 

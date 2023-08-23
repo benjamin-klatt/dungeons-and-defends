@@ -18,13 +18,14 @@ let lasttime = 0;
 
 gameobjects.push(map);
 gameobjects.push(new Tavern());
-gameobjects.push(new Turret(10, 10));
 gameobjects.push(new Enemy(map));
 gameobjects.push(new NewEnemyButton());
 export let rounds = new Rounds(20);
 gameobjects.push(rounds);
 gameobjects.push(map);
 gameobjects.push(new Grid(map));
+export let placer = new Placer();
+gameobjects.push(placer);
 
 document.onclick = handleMouseClick;
 function handleMouseClick(event: MouseEvent) {
