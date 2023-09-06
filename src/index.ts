@@ -9,6 +9,7 @@ import { Checkpoint } from "./Gameobjects/Checkpoint";
 import { NewEnemyButton } from "./Gameobjects/NewEnemyButton";
 import { Rounds } from "./Gameobjects/Rounds";
 import { Placer } from "./Gameobjects/Placer";
+import { EnemyPath } from "./Gameobjects/EnemyPath";
 //Array mit allen Gameobjects:
 export let gameobjects = [] as Array<Gameobject>;
 let canvas = document.getElementById("steve") as HTMLCanvasElement;
@@ -18,13 +19,15 @@ let lasttime = 0;
 
 gameobjects.push(map);
 gameobjects.push(new Tavern());
-gameobjects.push(new Turret(10, 10));
 gameobjects.push(new Enemy(map));
 gameobjects.push(new NewEnemyButton());
 export let rounds = new Rounds(20);
 gameobjects.push(rounds);
 gameobjects.push(map);
 gameobjects.push(new Grid(map));
+export let placer = new Placer();
+gameobjects.push(placer);
+gameobjects.push(new EnemyPath(map));
 
 document.onclick = handleMouseClick;
 function handleMouseClick(event: MouseEvent) {

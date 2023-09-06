@@ -2,6 +2,8 @@ import { Turret } from "./Turret";
 import { Gameobject } from "../Gameobject";
 import { TavernInnen } from "./TavernInnen";
 import { Placer } from "./Placer";
+import { gameobjects, placer } from "../index";
+
 export class TavernInnenMenschen extends Gameobject {
   xpos = 100;
   ypos = 700;
@@ -21,7 +23,7 @@ export class TavernInnenMenschen extends Gameobject {
     let yPosInField: boolean =
       event.offsetY <= this.ypos + this.height && event.offsetY >= this.ypos;
     if (xPosInField && yPosInField) {
-      this.gameobjects.push(new Placer());
+      placer.turret = new Turret();
     }
   }
 } // immer wenn dieser Knopf gedrückt wird soll ein neuer turret an der Maus gespawnt werden
