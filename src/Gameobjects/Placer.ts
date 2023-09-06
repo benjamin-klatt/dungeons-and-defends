@@ -1,14 +1,13 @@
 import { Turret } from "./Turret";
 import { Gameobject } from "../Gameobject";
 import { TavernInnen } from "./TavernInnen";
-import { TavernInnenMenschen } from "./TavernInnenMenschen";
 import { gameobjects } from "../index";
 
 export class Placer extends Gameobject {
   xPosRect = 0;
   yPosRect = 0;
-  widthRect = 10;
-  heightRect = 10;
+  widthRect = 20;
+  heightRect = 20;
   turret: Turret | null = null;
   constructor() {
     super(10);

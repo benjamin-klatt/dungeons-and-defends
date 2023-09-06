@@ -15,13 +15,14 @@ enum AttackType {
 
 export class Turret extends Gameobject {
   //Eigenschaften
-  attackspeed: number = 0;
-  attackdamage: number = 50;
+  attackspeed: number = 1;
+  attackdamage: number = 25;
   reach: number = 250;
   critchance: number = 0;
   price: number = 0;
   xPos: number = 0;
   yPos: number = 0;
+  cooldown: number = 0;
   attackType: AttackType = AttackType.FIRST;
 
   constructor() {
@@ -144,12 +145,16 @@ export class Turret extends Gameobject {
   }
 
   shootEnemy(enemy: Enemy, dt: number) {
-    gameobjects.push(new Projectile(this.xPos, this.yPos, enemy));
-    enemy.life = Math.max(0, enemy.life - (this.attackdamage / 1000) * dt);
+    if (this.cooldown <= 0) {
+      gameobjects.push(new Projectile(this.xPos, this.yPos, enemy, this.attackdamage));
+      this.cooldown = 1000 / this.attackspeed;
+    } else {
+      this.cooldown = this.cooldown - dt;
+    }
   }
 
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "cyan";
-    ctx.fillRect(this.xPos, this.yPos, 10, 10);
+    ctx.fillRect(this.xPos - 10, this.yPos - 10, 20, 20);
   }
 }

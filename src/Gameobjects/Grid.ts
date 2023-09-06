@@ -12,8 +12,6 @@ export class Grid extends Gameobject {
     this.map = map;
   }
 
-  tick(time: number, dt: number) {}
-
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.lineWidth = 1;
     ctx.strokeStyle = "black";
