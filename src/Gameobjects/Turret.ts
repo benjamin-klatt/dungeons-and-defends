@@ -146,7 +146,9 @@ export class Turret extends Gameobject {
 
   shootEnemy(enemy: Enemy, dt: number) {
     if (this.cooldown <= 0) {
-      gameobjects.push(new Projectile(this.xPos, this.yPos, enemy, this.attackdamage));
+      gameobjects.push(
+        new Projectile(this.xPos, this.yPos, enemy, this.attackdamage)
+      );
       this.cooldown = 1000 / this.attackspeed;
     } else {
       this.cooldown = this.cooldown - dt;
@@ -156,5 +158,9 @@ export class Turret extends Gameobject {
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "cyan";
     ctx.fillRect(this.xPos - 10, this.yPos - 10, 20, 20);
+    ctx.strokeStyle = "white";
+    ctx.beginPath();
+    ctx.arc(this.xPos - 10, this.yPos - 10, this.reach, 0, 2 * Math.PI);
+    ctx.stroke();
   }
 }

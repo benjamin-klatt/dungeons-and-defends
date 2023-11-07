@@ -1,6 +1,6 @@
 import { Gameobject } from "../Gameobject";
-import { TavernInnen } from "./TavernInnen";
-import { TavernInnenMenschen } from "./TavernInnenMenschen";
+import { InsideTavern } from "./InsideTavern";
+import { InsideTavernButton } from "./InsideTavernButton";
 import { gameobjects } from "../index";
 
 export class Tavern extends Gameobject {
@@ -9,8 +9,8 @@ export class Tavern extends Gameobject {
   width = 100;
   height = 100;
   tavernOpen = false;
-  tavernInnen: TavernInnen | null = null;
-  tavernInnenMenschen: TavernInnenMenschen | null = null;
+  insideTavern: InsideTavern | null = null;
+  insideTavernButton: InsideTavernButton | null = null;
   constructor() {
     super(4);
   }
@@ -29,16 +29,16 @@ export class Tavern extends Gameobject {
       event.offsetY <= this.ypos + this.height && event.offsetY >= this.ypos;
     if (xPosInField && yPosInField) {
       if (this.tavernOpen === false) {
-        this.tavernInnen = new TavernInnen();
-        this.gameobjects.push(this.tavernInnen);
-        this.tavernInnenMenschen = new TavernInnenMenschen();
-        this.gameobjects.push(this.tavernInnenMenschen);
+        this.insideTavern = new InsideTavern();
+        this.gameobjects.push(this.insideTavern);
+        this.insideTavernButton = new InsideTavernButton();
+        this.gameobjects.push(this.insideTavernButton);
         this.tavernOpen = true;
-      } else if (this.tavernInnen) {
-        let tavernIndex = this.gameobjects.indexOf(this.tavernInnen);
+      } else if (this.insideTavern) {
+        let tavernIndex = this.gameobjects.indexOf(this.insideTavern);
         this.gameobjects.splice(tavernIndex, 1);
         let tavernMenschenIndex = this.gameobjects.indexOf(
-          this.tavernInnenMenschen
+          this.insideTavernButton
         );
         this.gameobjects.splice(tavernMenschenIndex, 1);
         this.tavernOpen = false;
