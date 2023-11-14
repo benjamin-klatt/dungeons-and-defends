@@ -8,9 +8,14 @@ let mapImage = document.getElementById("map") as HTMLImageElement;
 export class Map extends Gameobject {
   constructor() {
     super(1);
-    this.addCheckpoint(new Checkpoint(100, 20));
-    //this.addCheckpoint(new Checkpoint(200, 200));
-    this.addCheckpoint(new Checkpoint(20, 20));
+    this.addCheckpoint(new Checkpoint(30, 0));
+    this.addCheckpoint(new Checkpoint(30, 210));
+    this.addCheckpoint(new Checkpoint(230, 210));
+    this.addCheckpoint(new Checkpoint(230, 410));
+    this.addCheckpoint(new Checkpoint(430, 410));
+    this.addCheckpoint(new Checkpoint(430, 210));
+    this.addCheckpoint(new Checkpoint(630, 210));
+    this.addCheckpoint(new Checkpoint(630, 0));
   }
   public checkpoints: Array<Checkpoint> = [];
   render(time: number, ctx: CanvasRenderingContext2D) {

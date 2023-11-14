@@ -1,5 +1,4 @@
 import { Gameobject } from "../Gameobject";
-import { TavernInnenMenschen } from "./TavernInnenMenschen";
 let tavernInnenImage = document.getElementById("tavern") as HTMLImageElement;
 export class TavernInnen extends Gameobject {
   xpos = 0;
@@ -8,7 +7,6 @@ export class TavernInnen extends Gameobject {
   height = 200;
   constructor() {
     super(5);
-    this.gameobjects.push(new TavernInnenMenschen());
   }
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "#752904";
