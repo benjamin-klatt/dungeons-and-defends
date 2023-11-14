@@ -1,4 +1,4 @@
-import { gameobjects } from "../index";
+import { gameobjects, goldValue } from "../index";
 import { Gameobject } from "../Gameobject";
 import { Map } from "./Map";
 
@@ -8,7 +8,7 @@ export class Enemy extends Gameobject {
   speed: number = 75;
   xPos: number = 20;
   yPos: number = 0;
-  bounty: number = 0;
+  bounty: number = 1;
   map: Map;
   cpNumber: number = 1;
   constructor(map: Map) {
@@ -48,6 +48,7 @@ export class Enemy extends Gameobject {
     if (this.life <= 0) {
       //console.log(gameobjects.indexOf(this));
       gameobjects.splice(gameobjects.indexOf(this), 1);
+      goldValue.gold = goldValue.gold + this.bounty;
     }
   }
 

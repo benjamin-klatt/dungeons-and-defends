@@ -1,6 +1,6 @@
 import { Turret } from "./Turret";
 import { Gameobject } from "../Gameobject";
-import { TavernInnen } from "./TavernInnen";
+import { InsideTavern } from "./InsideTavern";
 import { gameobjects } from "../index";
 
 export class Placer extends Gameobject {
@@ -13,8 +13,8 @@ export class Placer extends Gameobject {
     super(10);
   }
   onMouseMove(event: MouseEvent) {
-    this.xPosRect = event.offsetX;
-    this.yPosRect = event.offsetY;
+    this.xPosRect = event.offsetX - 10;
+    this.yPosRect = event.offsetY - 10;
   }
 
   onClick(event: MouseEvent) {
@@ -33,7 +33,7 @@ export class Placer extends Gameobject {
         this.xPosRect,
         this.yPosRect,
         this.widthRect,
-        this.heightRect
+        this.heightRect,
       );
     }
   }

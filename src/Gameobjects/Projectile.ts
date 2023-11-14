@@ -3,6 +3,7 @@ import { gameobjects } from "../index";
 import { Enemy } from "./Enemy";
 import { Turret } from "./Turret";
 import { Map } from "./Map";
+import { GoldValue } from "./GoldValue";
 
 export class Projectile extends Gameobject {
   speed = 120;

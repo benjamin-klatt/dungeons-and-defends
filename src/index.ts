@@ -1,6 +1,6 @@
 import { Gameobject } from "./Gameobject";
 import { Map } from "./Gameobjects/Map";
-import { TavernInnen } from "./Gameobjects/TavernInnen";
+import { InsideTavern } from "./Gameobjects/InsideTavern";
 import { Grid } from "./Gameobjects/Grid";
 import { Tavern } from "./Gameobjects/Tavern";
 import { Turret } from "./Gameobjects/Turret";
@@ -11,6 +11,8 @@ import { Rounds } from "./Gameobjects/Rounds";
 import { Mony } from "./Gameobjects/Mony";
 import { Placer } from "./Gameobjects/Placer";
 import { EnemyPath } from "./Gameobjects/EnemyPath";
+import { GoldValue } from "./Gameobjects/GoldValue";
+
 //Array mit allen Gameobjects:
 export let gameobjects = [] as Array<Gameobject>;
 let canvas = document.getElementById("steve") as HTMLCanvasElement;
@@ -29,6 +31,8 @@ gameobjects.push(new Grid(map));
 export let placer = new Placer();
 gameobjects.push(placer);
 gameobjects.push(new EnemyPath(map));
+export let goldValue = new GoldValue();
+gameobjects.push(goldValue);
 
 document.onclick = handleMouseClick;
 function handleMouseClick(event: MouseEvent) {
