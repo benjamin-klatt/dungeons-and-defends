@@ -49,7 +49,7 @@ export class Enemy extends Gameobject {
     let red = (255 * (100 - this.life)) / 100;
     let green = (255 * this.life) / 100;
     ctx.fillStyle = "rgb(" + red + "," + green + ",0)";
-    ctx.fillRect(this.xPos, this.yPos, 10, 10);
+    ctx.fillRect(this.xPos, this.yPos, 20, 20);
   }
   private hasFoundCheckpoint(): boolean {
     let xD = this.getCurrentCheckpoint().xPosCp - this.xPos;

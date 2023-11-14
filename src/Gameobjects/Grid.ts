@@ -16,7 +16,7 @@ export class Grid extends Gameobject {
 
   render(time: number, ctx: CanvasRenderingContext2D) {
     ctx.lineWidth = 1;
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = "#d87d22a6";
     ctx.beginPath();
     for (let x = 0; x <= 900; x = x + this.width) {
       for (let y = 0; y <= 600; y = y + this.heigth) {

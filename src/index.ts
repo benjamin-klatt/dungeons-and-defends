@@ -8,6 +8,7 @@ import { Enemy } from "./Gameobjects/Enemy";
 import { Checkpoint } from "./Gameobjects/Checkpoint";
 import { NewEnemyButton } from "./Gameobjects/NewEnemyButton";
 import { Rounds } from "./Gameobjects/Rounds";
+import { Mony } from "./Gameobjects/Mony";
 //Array mit allen Gameobjects:
 export let gameobjects = [] as Array<Gameobject>;
 let canvas = document.getElementById("steve") as HTMLCanvasElement;
