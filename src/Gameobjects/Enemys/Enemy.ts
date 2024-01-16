@@ -1,8 +1,8 @@
-import { gameobjects, goldValue } from "../index";
-import { Gameobject } from "../Gameobject";
-import { Map } from "./Map";
+import { gameobjects, goldValue } from "../../index";
+import { Gameobject } from "../../Gameobject";
+import { Map } from "./../Map";
 
-export class Enemy extends Gameobject {
+export abstract class Enemy extends Gameobject {
   //Eigenschaften
   life: number = 100;
   speed: number = 75;
@@ -56,11 +56,7 @@ export class Enemy extends Gameobject {
     let red = (255 * (100 - this.life)) / 100;
     let green = (255 * this.life) / 100;
     ctx.fillStyle = "rgb(" + red + "," + green + ",0)";
-<<<<<<< HEAD:src/Gameobjects/Enemys/Enemy.ts
-    ctx.fillRect(this.xPos, this.yPos, 20, 20);
-=======
     ctx.fillRect(this.xPos - 10, this.yPos - 10, 20, 20);
->>>>>>> 406e4e066748986ceed06ae19ca384a9080fdf34:src/Gameobjects/Enemy.ts
   }
   private hasFoundCheckpoint(): boolean {
     let xD = this.getCurrentCheckpoint().xPosCp - this.xPos;

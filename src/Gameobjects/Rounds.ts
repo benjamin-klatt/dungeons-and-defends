@@ -1,6 +1,6 @@
 import { gameobjects, map } from "../index";
 import { Gameobject } from "../Gameobject";
-import { Enemy } from "./Enemy";
+import { Enemy } from "./Enemys/Enemy";
 
 export class Rounds extends Gameobject {
   mouseOnField: boolean = false;
@@ -19,9 +19,12 @@ export class Rounds extends Gameobject {
     console.log(count);
     if (count <= 0) return;
     gameobjects.push(new Enemy(map));
-    setTimeout(() => {
-      this.enemySpawner(count - 1);
-    }, 1000 / this.rounds + 250);
+    setTimeout(
+      () => {
+        this.enemySpawner(count - 1);
+      },
+      1000 / this.rounds + 250,
+    );
   }
   onClick(event: MouseEvent) {
     let xPosInField: boolean =

@@ -34,11 +34,11 @@ export class Tavern extends Gameobject {
         this.insideTavernButton = new InsideTavernButton();
         this.gameobjects.push(this.insideTavernButton);
         this.tavernOpen = true;
-      } else if (this.insideTavern) {
+      } else if (this.insideTavern && this.insideTavernButton) {
         let tavernIndex = this.gameobjects.indexOf(this.insideTavern);
         this.gameobjects.splice(tavernIndex, 1);
         let tavernMenschenIndex = this.gameobjects.indexOf(
-          this.insideTavernButton
+          this.insideTavernButton,
         );
         this.gameobjects.splice(tavernMenschenIndex, 1);
         this.tavernOpen = false;

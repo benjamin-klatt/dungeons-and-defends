@@ -6,7 +6,7 @@ import { gameobjects, placer, goldValue } from "../index";
 
 export class InsideTavernButton extends Gameobject {
   xpos = 100;
-  ypos = 700;
+  ypos = 600;
   width = 50;
   height = 50;
   constructor() {

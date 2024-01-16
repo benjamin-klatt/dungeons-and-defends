@@ -1,6 +1,6 @@
 import { Gameobject } from "../Gameobject";
 import { gameobjects } from "../index";
-import { Enemy } from "./Enemy";
+import { Enemy } from "./Enemys/Enemy";
 import { Turret } from "./Turret";
 import { Map } from "./Map";
 import { GoldValue } from "./GoldValue";

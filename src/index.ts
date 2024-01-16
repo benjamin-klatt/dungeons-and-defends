@@ -4,7 +4,7 @@ import { InsideTavern } from "./Gameobjects/InsideTavern";
 import { Grid } from "./Gameobjects/Grid";
 import { Tavern } from "./Gameobjects/Tavern";
 import { Turret } from "./Gameobjects/Turret";
-import { Enemy } from "./Gameobjects/Enemy";
+import { Enemy } from "./Gameobjects/Enemys/Enemy";
 import { Checkpoint } from "./Gameobjects/Checkpoint";
 import { NewEnemyButton } from "./Gameobjects/NewEnemyButton";
 import { Rounds } from "./Gameobjects/Rounds";
