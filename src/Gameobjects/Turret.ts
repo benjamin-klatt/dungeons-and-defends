@@ -1,6 +1,6 @@
 import { Gameobject } from "../Gameobject";
 import { gameobjects } from "../index";
-import { Enemy } from "./Enemy";
+import { Enemy } from "./Enemys/Enemy";
 import { Projectile } from "./Projectile";
 
 enum AttackType {
@@ -80,7 +80,7 @@ export class Turret extends Gameobject {
     }
     if (this.attackType === AttackType.NEAREST) {
       enemies.sort(
-        (a, b) => this.getEnemyDistance(a) - this.getEnemyDistance(b)
+        (a, b) => this.getEnemyDistance(a) - this.getEnemyDistance(b),
       );
       if (enemies.length > 0) {
         this.shootEnemy(enemies[0], dt);
@@ -88,7 +88,7 @@ export class Turret extends Gameobject {
     }
     if (this.attackType === AttackType.FARTHEST) {
       enemies.sort(
-        (a, b) => this.getEnemyDistance(b) - this.getEnemyDistance(a)
+        (a, b) => this.getEnemyDistance(b) - this.getEnemyDistance(a),
       );
       if (enemies.length > 0) {
         this.shootEnemy(enemies[0], dt);
@@ -147,7 +147,7 @@ export class Turret extends Gameobject {
   shootEnemy(enemy: Enemy, dt: number) {
     if (this.cooldown <= 0) {
       gameobjects.push(
-        new Projectile(this.xPos, this.yPos, enemy, this.attackdamage)
+        new Projectile(this.xPos, this.yPos, enemy, this.attackdamage),
       );
       this.cooldown = 1000 / this.attackspeed;
     } else {

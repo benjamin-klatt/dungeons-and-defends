@@ -1,6 +1,6 @@
 import { gameobjects, map } from "../index";
 import { Gameobject } from "../Gameobject";
-import { Enemy } from "./Enemy";
+import { Enemy } from "./Enemys/Enemy";
 
 export class NewEnemyButton extends Gameobject {
   mouseOnField: boolean = false;

@@ -1,7 +1,7 @@
 import { Gameobject } from "../Gameobject";
 import { Checkpoint } from "./Checkpoint";
 import { gameobjects } from "../index";
-import { Enemy } from "./Enemy";
+import { Enemy } from "./Enemys/Enemy";
 
 let mapImage = document.getElementById("map") as HTMLImageElement;
 

@@ -1,7 +1,7 @@
 import { gameobjects } from "../index";
 import { Gameobject } from "../Gameobject";
 import { Map } from "./Map";
-import { Enemy } from "./Enemy";
+import { Enemy } from "./Enemys/Enemy";
 import { Turret } from "./Turret";
 
 export class Mony extends Gameobject {
