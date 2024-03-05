@@ -10,13 +10,6 @@ export class NewEnemyButton extends Gameobject {
   widthRect: number = 20;
   heightRect: number = 20;
 
-  mouseOnField: boolean = false;
-  mouseClick: boolean = false;
-  xPosRect: number = 20;
-  yPosRect: number = 100;
-  widthRect: number = 20;
-  heightRect: number = 20;
-
   constructor() {
     super(2);
   }

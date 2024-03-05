@@ -1,6 +1,6 @@
 import { Gameobject } from "../Gameobject";
 export class GoldValue extends Gameobject {
-  gold = 0;
+  gold = 100;
   constructor() {
     super(6);
   }
