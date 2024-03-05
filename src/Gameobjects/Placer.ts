@@ -1,7 +1,7 @@
 import { Turret } from "./Turret";
 import { Gameobject } from "../Gameobject";
 import { InsideTavern } from "./InsideTavern";
-import { gameobjects } from "../index";
+import { gameobjects, map } from "../index";
 
 export class Placer extends Gameobject {
   xPosRect = 0;
@@ -13,16 +13,31 @@ export class Placer extends Gameobject {
     super(10);
   }
   onMouseMove(event: MouseEvent) {
-    this.xPosRect = event.offsetX - 10;
-    this.yPosRect = event.offsetY - 10;
+    this.xPosRect = Math.round((event.offsetX - 10) / 20) * 20;
+    this.yPosRect = Math.round((event.offsetY - 10) / 20) * 20;
   }
 
   onClick(event: MouseEvent) {
-    if (this.turret !== null) {
-      this.turret.xPos = event.offsetX;
-      this.turret.yPos = event.offsetY;
+    if (
+      this.turret !== null &&
+      event.offsetY < 600 &&
+      this.isFree(event.offsetX, event.offsetY)
+    ) {
+      this.turret.xPos = Math.round((event.offsetX - 10) / 20) * 20 + 10;
+      this.turret.yPos = Math.round((event.offsetY - 10) / 20) * 20 + 10;
       gameobjects.push(this.turret);
+      map.entityMap[Math.floor(this.turret.xPos / 20)][
+        Math.floor(this.turret.yPos / 20)
+      ] = this.turret;
       this.turret = null;
+    }
+  }
+
+  isFree(xPos: number, yPos: number) {
+    if (map.entityMap[Math.floor(xPos / 20)][Math.floor(yPos / 20)] === null) {
+      return true;
+    } else {
+      return false;
     }
   }
 

@@ -22,8 +22,14 @@ export class InsideTavernButton extends Gameobject {
       event.offsetX <= this.xpos + this.width && event.offsetX >= this.xpos;
     let yPosInField: boolean =
       event.offsetY <= this.ypos + this.height && event.offsetY >= this.ypos;
-    if (xPosInField && yPosInField) {
+    if (
+      xPosInField &&
+      yPosInField &&
+      goldValue.gold >= 10 &&
+      placer.turret === null
+    ) {
       placer.turret = new Turret();
+      goldValue.gold = goldValue.gold - 10;
     }
   }
 } // immer wenn dieser Knopf gedrückt wird soll ein neuer turret an der Maus gespawnt werden
