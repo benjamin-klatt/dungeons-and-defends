@@ -8,7 +8,6 @@ import { Enemy } from "./Gameobjects/Enemys/Enemy";
 import { Checkpoint } from "./Gameobjects/Checkpoint";
 import { NewEnemyButton } from "./Gameobjects/NewEnemyButton";
 import { Rounds } from "./Gameobjects/Rounds";
-import { Mony } from "./Gameobjects/Mony";
 import { Placer } from "./Gameobjects/Placer";
 import { EnemyPath } from "./Gameobjects/EnemyPath";
 import { GoldValue } from "./Gameobjects/GoldValue";
@@ -22,7 +21,6 @@ let lasttime = 0;
 
 gameobjects.push(map);
 gameobjects.push(new Tavern());
-gameobjects.push(new Enemy(map));
 gameobjects.push(new NewEnemyButton());
 export let rounds = new Rounds(20);
 gameobjects.push(rounds);
@@ -42,8 +40,12 @@ function handleMouseClick(event: MouseEvent) {
   }
 }
 
+export let mousePos = { x: 0, y: 0 };
+
 document.onmousemove = handleMouseMove;
 function handleMouseMove(event: MouseEvent) {
+  mousePos.x = event.offsetX;
+  mousePos.y = event.offsetY;
   for (let x = 0; x < gameobjects.length; x = x + 1) {
     let gameobject = gameobjects[x];
     gameobject.onMouseMove(event);
