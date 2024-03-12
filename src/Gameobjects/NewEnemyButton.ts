@@ -1,6 +1,6 @@
 import { gameobjects, map } from "../index";
 import { Gameobject } from "../Gameobject";
-import { Enemy } from "./Enemys/Enemy";
+import { Goblin } from "./Enemys/Goblin";
 
 export class NewEnemyButton extends Gameobject {
   mouseOnField: boolean = false;
@@ -28,7 +28,7 @@ export class NewEnemyButton extends Gameobject {
       event.clientY >= this.yPosRect;
     if (xPosInField && yPosInField) {
       //Hier soll ein neuer Enemy nun entstehen
-      gameobjects.push(new Enemy(map));
+      gameobjects.push(new Goblin(map));
       console.log("new Enemy");
     }
   }

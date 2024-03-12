@@ -1,14 +1,19 @@
 import { gameobjects, goldValue } from "../../index";
 import { Gameobject } from "../../Gameobject";
 import { Map } from "./../Map";
+import { Healthbar } from "../Healthbar";
+import { mousePos } from "../../index";
 
 export abstract class Enemy extends Gameobject {
   //Eigenschaften
-  life: number = 100;
-  speed: number = 75;
-  xPos: number = 20;
-  yPos: number = 0;
-  bounty: number = 1;
+  abstract maxLife: number;
+  abstract life: number;
+  abstract speed: number;
+  xPos: number;
+  yPos: number;
+  abstract bounty: number;
+  abstract color: string;
+  openHealthbar: Healthbar | null = null;
   map: Map;
   cpNumber: number = 1;
   constructor(map: Map) {
@@ -26,6 +31,7 @@ export abstract class Enemy extends Gameobject {
   getCurrentCheckpoint() {
     return this.map.checkpoints[this.cpNumber];
   }
+
   //D: Direction, N:Normalenvektor, B: Einheitsvektor
   tick(time: number, dt: number) {
     //ToDo: Deltazeit in Index.ts noch machen
@@ -44,7 +50,19 @@ export abstract class Enemy extends Gameobject {
         this.cpNumber++;
       }
     }
-    //console.log(this.life);
+
+    let xPosInField: boolean =
+      mousePos.x <= this.xPos + 15 && mousePos.x >= this.xPos - 15;
+    let yPosInField: boolean =
+      mousePos.y <= this.yPos + 15 && mousePos.y >= this.yPos - 15;
+    if (xPosInField && yPosInField && this.openHealthbar === null) {
+      this.openHealthbar = new Healthbar(this);
+      gameobjects.push(this.openHealthbar);
+    } else if ((!xPosInField || !yPosInField) && this.openHealthbar !== null) {
+      this.openHealthbar.delete();
+      this.openHealthbar = null;
+    }
+
     if (this.life <= 0) {
       //console.log(gameobjects.indexOf(this));
       gameobjects.splice(gameobjects.indexOf(this), 1);
@@ -53,9 +71,7 @@ export abstract class Enemy extends Gameobject {
   }
 
   render(time: number, ctx: CanvasRenderingContext2D) {
-    let red = (255 * (100 - this.life)) / 100;
-    let green = (255 * this.life) / 100;
-    ctx.fillStyle = "rgb(" + red + "," + green + ",0)";
+    ctx.fillStyle = this.color;
     ctx.fillRect(this.xPos - 10, this.yPos - 10, 20, 20);
   }
   private hasFoundCheckpoint(): boolean {
