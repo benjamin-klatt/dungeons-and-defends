@@ -1,6 +1,6 @@
 import { gameobjects, map } from "../index";
 import { Gameobject } from "../Gameobject";
-import { Enemy } from "./Enemys/Enemy";
+import { Goblin } from "./Enemys/Goblin";
 
 export class Rounds extends Gameobject {
   mouseOnField: boolean = false;
@@ -15,17 +15,7 @@ export class Rounds extends Gameobject {
     ctx.fillStyle = "violet";
     ctx.fillRect(this.xPosRect, this.yPosRect, this.widthRect, this.heightRect);
   }
-  enemySpawner(count: number) {
-    console.log(count);
-    if (count <= 0) return;
-    gameobjects.push(new Enemy(map));
-    setTimeout(
-      () => {
-        this.enemySpawner(count - 1);
-      },
-      1000 / this.rounds + 250,
-    );
-  }
+
   onClick(event: MouseEvent) {
     let xPosInField: boolean =
       event.clientX <= this.xPosRect + this.widthRect &&
@@ -35,11 +25,22 @@ export class Rounds extends Gameobject {
       event.clientY >= this.yPosRect;
     if (xPosInField && yPosInField) {
       if (map.enemyCount() <= 0) {
-        console.log("Spawn new Enemy!");
         //Hier soll ein neuer Enemy nun entstehen
-        this.rounds = this.rounds + 1;
         this.enemySpawner(this.rounds);
+        this.rounds = this.rounds + 1;
       }
     }
+  }
+  enemySpawner(currentRound: number, alreadyPlaced: number = 0) {
+    let roundData = [
+      [Goblin, Goblin, Goblin],
+      [Goblin, Goblin, Goblin, Goblin, Goblin, Goblin],
+    ];
+    let currentEnemy = roundData[currentRound][alreadyPlaced];
+    if (currentEnemy === undefined) return;
+    gameobjects.push(new currentEnemy(map));
+    setTimeout(() => {
+      this.enemySpawner(currentRound, alreadyPlaced + 1);
+    }, 1000);
   }
 }

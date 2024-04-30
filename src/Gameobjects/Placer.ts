@@ -1,4 +1,4 @@
-import { Turret } from "./Turret";
+import { Turret } from "./Turrets/Turret";
 import { Gameobject } from "../Gameobject";
 import { InsideTavern } from "./InsideTavern";
 import { gameobjects, map } from "../index";

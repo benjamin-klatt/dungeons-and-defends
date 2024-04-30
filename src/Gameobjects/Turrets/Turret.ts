@@ -1,9 +1,9 @@
-import { Gameobject } from "../Gameobject";
-import { gameobjects } from "../index";
-import { Enemy } from "./Enemys/Enemy";
-import { Projectile } from "./Projectile";
+import { Gameobject } from "../../Gameobject";
+import { gameobjects } from "../../index";
+import { Enemy } from ".././Enemys/Enemy";
+import { Projectile } from ".././Projectile";
 
-enum AttackType {
+export enum AttackType {
   AURA,
   NEAREST,
   FARTHEST,
@@ -13,17 +13,16 @@ enum AttackType {
   LAST,
 }
 
-export class Turret extends Gameobject {
+export abstract class Turret extends Gameobject {
   //Eigenschaften
-  attackspeed: number = 1;
-  attackdamage: number = 25;
-  reach: number = 250;
-  critchance: number = 0;
-  price: number = 0;
+  abstract attackspeed: number;
+  abstract attackdamage: number;
+  abstract reach: number;
+  abstract critchance: number;
   xPos: number = 0;
   yPos: number = 0;
-  cooldown: number = 0;
-  attackType: AttackType = AttackType.FIRST;
+  abstract cooldown: number;
+  abstract attackType: AttackType;
 
   constructor() {
     super(3);
@@ -149,7 +148,7 @@ export class Turret extends Gameobject {
       gameobjects.push(
         new Projectile(this.xPos, this.yPos, enemy, this.attackdamage),
       );
-      this.cooldown = 1000 / this.attackspeed;
+      this.cooldown = 1000000 / this.attackspeed;
     } else {
       this.cooldown = this.cooldown - dt;
     }
@@ -160,7 +159,7 @@ export class Turret extends Gameobject {
     ctx.fillRect(this.xPos - 10, this.yPos - 10, 20, 20);
     ctx.strokeStyle = "white";
     ctx.beginPath();
-    ctx.arc(this.xPos - 10, this.yPos - 10, this.reach, 0, 2 * Math.PI);
+    ctx.arc(this.xPos, this.yPos, this.reach, 0, 2 * Math.PI);
     ctx.stroke();
   }
 }

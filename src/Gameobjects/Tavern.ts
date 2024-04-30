@@ -2,6 +2,7 @@ import { Gameobject } from "../Gameobject";
 import { InsideTavern } from "./InsideTavern";
 import { InsideTavernButton } from "./InsideTavernButton";
 import { gameobjects } from "../index";
+import { Ranger } from "./Turrets/Ranger";
 
 export class Tavern extends Gameobject {
   xpos = 0;
@@ -31,7 +32,7 @@ export class Tavern extends Gameobject {
       if (this.tavernOpen === false) {
         this.insideTavern = new InsideTavern();
         this.gameobjects.push(this.insideTavern);
-        this.insideTavernButton = new InsideTavernButton();
+        this.insideTavernButton = new InsideTavernButton(Ranger);
         this.gameobjects.push(this.insideTavernButton);
         this.tavernOpen = true;
       } else if (this.insideTavern && this.insideTavernButton) {

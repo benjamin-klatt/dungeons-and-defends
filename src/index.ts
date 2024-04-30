@@ -3,7 +3,7 @@ import { Map } from "./Gameobjects/Map";
 import { InsideTavern } from "./Gameobjects/InsideTavern";
 import { Grid } from "./Gameobjects/Grid";
 import { Tavern } from "./Gameobjects/Tavern";
-import { Turret } from "./Gameobjects/Turret";
+import { Turret } from "./Gameobjects/Turrets/Turret";
 import { Enemy } from "./Gameobjects/Enemys/Enemy";
 import { Checkpoint } from "./Gameobjects/Checkpoint";
 import { NewEnemyButton } from "./Gameobjects/NewEnemyButton";
